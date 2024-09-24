@@ -1,7 +1,14 @@
 main {
   background-color: #2d2d2d;
   min-height: 100vh;
+  display: grid;
+  grid-template-areas:
+    'header'
+    'router';
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
   section.header {
+    grid-area: header;
     padding-bottom: 46px;
     display: grid;
     grid-template-areas:
@@ -38,6 +45,10 @@ main {
             text-align: center;
           }
         }
+  }
+  section.router {
+    grid-area: router;
+    align-self: self-start;
   }
 }
 
@@ -76,6 +87,9 @@ main {
               text-align: left;
             }
           }
+    }
+    section.router {
+      align-self: self-start;
     }
   }
 }

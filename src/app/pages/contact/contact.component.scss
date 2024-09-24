@@ -10,7 +10,6 @@ main.container {
   }
   div.content {
     display: grid;
-
     form.form {
       display: grid;
       grid-template-areas:
@@ -100,15 +99,19 @@ main.container {
 }
 
 @media only screen and (min-width: 768px) {
-  div.content {
-    justify-items: center;
-  }
-  div.inputs {
-    grid-area: inputs;
-    display: grid;
-    grid-template-areas: 'name email';
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 16px;
+  main.container {
+    div.content {
+      justify-items: center;
+      form.form {
+        div.inputs {
+          grid-area: inputs;
+          display: grid;
+          grid-template-areas: 'name email';
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr;
+          gap: 16px;
+        }
+      }
+    }
   }
 }
