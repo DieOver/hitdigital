@@ -1,0 +1,29 @@
+<main class="container">
+  <div class="title">
+    <app-hit-title>Introdução</app-hit-title>
+  </div>
+  <div class="content">
+    <div *ngIf="hasError(); else dataTemplate">
+      <app-hit-card>
+        <section class="text-error">
+          <div>Erro ao carregar os dados</div>
+          <app-hit-button (tap)="reload()" [darkMode]="true">Reload</app-hit-button>
+        </section>
+      </app-hit-card>
+    </div>
+
+    <ng-template #dataTemplate>
+      <div *ngIf="data$ | async as data; else loading">
+        <app-hit-card>
+          <section class="text" [innerText]="data.data.text"></section>
+        </app-hit-card>
+      </div>
+    </ng-template>
+
+    <ng-template #loading>
+      <section class="loading">
+        <app-hit-loader></app-hit-loader>
+      </section>
+    </ng-template>
+  </div>
+</main>

@@ -1,0 +1,21 @@
+<main class="container">
+  <div class="title">
+    <app-hit-title>Contato</app-hit-title>
+  </div>
+  <div class="content">
+    <app-hit-card>
+      <form class="form" (submit)="onSubmit($event)" [formGroup]="formContact">
+        <div class="inputs">
+          <input placeholder="Nome*" formControlName="name" [ngClass]="{'error': (formContactControl.name.touched || submitted) && formContactControl.name.errors}" />
+          <input placeholder="E-mail*" formControlName="email" [ngClass]="{'error': (formContactControl.email.touched || submitted) && formContactControl.email.errors}"/>
+        </div>
+        <div class="textarea">
+          <textarea rows="5" placeholder="Mensagem*" formControlName="message" [ngClass]="{'error': (formContactControl.message.touched || submitted) && formContactControl.message.errors}"></textarea>
+        </div>
+        <div class="btn">
+          <app-hit-button type="submit" [darkMode]="true">Enviar</app-hit-button>
+        </div>
+      </form>
+    </app-hit-card>
+  </div>
+</main>

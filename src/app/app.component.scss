@@ -1,0 +1,81 @@
+main {
+  background-color: #2d2d2d;
+  min-height: 100vh;
+  section.header {
+    padding-bottom: 46px;
+    display: grid;
+    grid-template-areas:
+        'logo'
+        'actions';
+        justify-items: center;
+        grid-template-rows: auto auto;
+        grid-template-columns: 1fr;
+        div.logo {
+          grid-area: logo;
+          img {
+            padding-top: 32px;
+            padding-bottom: 32px;
+            width: 100%;
+            max-width: 160px;
+          }
+        }
+        div.actions {
+          grid-area: actions;
+          display: grid;
+          grid-template-areas:
+            'btn-introduction'
+            'btn-contact';
+          grid-template-rows: 1fr 1fr;
+          grid-template-columns: 1fr;
+          width: 100%;
+          gap: 10px;
+          div.btn-introduction {
+            grid-area: btn-introduction;
+            text-align: center;
+          }
+          div.btn-contact {
+            grid-area: btn-contact;
+            text-align: center;
+          }
+        }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  main {
+    section.header {
+      padding-bottom: 46px;
+      display: grid;
+      grid-template-areas:
+          'logo'
+          'actions';
+          justify-items: center;
+          grid-template-rows: auto auto;
+          grid-template-columns: 1fr;
+          div.logo {
+            grid-area: logo;
+            img {
+              padding-top: 100px;
+              padding-bottom: 60px;
+            }
+          }
+          div.actions {
+            grid-area: actions;
+            display: grid;
+            grid-template-areas: 'btn-introduction btn-contact';
+            grid-template-rows: 1fr;
+            grid-template-columns: 1fr 1fr;
+            width: 100%;
+            gap: 10px;
+            div.btn-introduction {
+              grid-area: btn-introduction;
+              text-align: right;
+            }
+            div.btn-contact {
+              grid-area: btn-contact;
+              text-align: left;
+            }
+          }
+    }
+  }
+}

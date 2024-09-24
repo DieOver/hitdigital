@@ -1,0 +1,114 @@
+main.container {
+  display: grid;
+  grid-template-areas:
+    'title'
+    'content';
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr;
+  div.title {
+    text-align: center;
+  }
+  div.content {
+    display: grid;
+
+    form.form {
+      display: grid;
+      grid-template-areas:
+          'inputs'
+          'textarea'
+          'btn';
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto;
+      gap: 16px;
+      div.inputs {
+        grid-area: inputs;
+        display: grid;
+        grid-template-areas: 'name' 'email';
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 16px;
+        input {
+          border-radius: 5px;
+          background: #ffffff;
+          resize: none;
+          font-family: "Montserrat", sans-serif;
+          font-size: 13px;
+          font-weight: normal;
+          line-height: 24px;
+          font-style: normal;
+          text-align: left;
+          color: #999999;
+          padding: 16px;
+          border: none;
+          outline: none;
+          border: 2px solid transparent;
+          &::placeholder {
+            font-family: "Montserrat", sans-serif;
+            font-size: 13px;
+            font-weight: normal;
+            line-height: 24px;
+            font-style: normal;
+            text-align: left;
+            color: #999999;
+          }
+          &.error {
+            border: 2px solid #e05b4e;
+          }
+        }
+      }
+      div.textarea {
+        grid-area: textarea;
+        textarea {
+          border-radius: 5px;
+          background: #ffffff;
+          width: 100%;
+          resize: none;
+          font-family: "Montserrat", sans-serif;
+          font-size: 13px;
+          font-weight: normal;
+          line-height: 24px;
+          font-style: normal;
+          text-align: left;
+          color: #999999;
+          padding: 16px;
+          border: none;
+          outline: none;
+          border: 2px solid transparent;
+          &::placeholder {
+            font-family: "Montserrat", sans-serif;
+            font-size: 13px;
+            font-weight: normal;
+            line-height: 24px;
+            font-style: normal;
+            text-align: left;
+            color: #999999;
+          }
+          &.error {
+            border: 2px solid #e05b4e;
+          }
+        }
+      }
+      div.btn {
+        grid-area: btn;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        padding-top: 8px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  div.content {
+    justify-items: center;
+  }
+  div.inputs {
+    grid-area: inputs;
+    display: grid;
+    grid-template-areas: 'name email';
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 16px;
+  }
+}

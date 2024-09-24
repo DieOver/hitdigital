@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: Montserrat;
+  src: url('../public/font/Montserrat-Regular.ttf') format(truetype);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url('../public/font/Montserrat-Light.ttf') format(truetype);
+  font-weight: 300;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+}

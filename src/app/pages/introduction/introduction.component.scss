@@ -1,0 +1,41 @@
+main.container {
+  display: grid;
+  grid-template-areas:
+    'title'
+    'content';
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr;
+  div.title {
+    text-align: center;
+  }
+  div.content {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    section.text {
+      font-family: "Montserrat", sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 24px;
+      font-style: normal;
+      text-align: left;
+      color: #ffffff;
+    }
+    section.text-error {
+      font-family: "Montserrat", sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 24px;
+      font-style: normal;
+      text-align: center;
+      color: #ffffff;
+      div {
+        margin-bottom: 24px;
+      }
+    }
+    section.loading {
+      display: grid;
+      place-items: center;
+    }
+  }
+}

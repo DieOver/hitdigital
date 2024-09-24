@@ -1,0 +1,25 @@
+h1 {
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 22px;
+  color: #ffffff;
+  border-bottom: 2px solid #707070;
+  display: inline-block;
+  padding: 6px 8px;
+  margin-bottom: 32px;
+  &::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 6px;
+    background: #ea916b;
+    background: linear-gradient(180deg,
+    #ea916b 0.00%,
+    #e05a4d 100.00%);
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
