@@ -1,0 +1,11 @@
+<ng-container *ngIf="showing()">
+  <div @overlay class="container-modal" (click)="onBackdropDismiss(false)">
+    <div class="box-modal" @modal>
+      <p class="title">{{ data.title }}</p>
+      <p class="description" [innerText]="data.description"></p>
+      <div class="container-btn">
+        <app-hit-button class="btn-cancel" (click)="onClose(false)" [darkMode]="true" >{{ data.btnText }}</app-hit-button>
+      </div>
+    </div>
+  </div>
+</ng-container>

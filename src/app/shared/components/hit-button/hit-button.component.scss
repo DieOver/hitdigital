@@ -1,4 +1,10 @@
+:host {
+  --width: unset;
+}
+
 button {
+  width: var(--width);
+
   min-width: 145px;
 
   border-color: #000000;

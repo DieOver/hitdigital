@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../../environments/environment';
+import { delay } from 'rxjs';
 import { THit } from '../../types/thit';
-import { catchError, delay, map, of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

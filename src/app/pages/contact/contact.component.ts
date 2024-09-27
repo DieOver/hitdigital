@@ -5,6 +5,7 @@ import { HitService } from '../../shared/services/hit/hit.service';
 import { HitCardComponent } from '../../shared/components/hit-card/hit-card.component';
 import { FormControl, FormGroup, ReactiveFormsModule, RequiredValidator, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ModalService } from '../../shared/services/modal/modal.service';
 
 @Component({
   selector: 'app-contact',
@@ -21,6 +22,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ContactComponent {
 
+  modalService = inject(ModalService);
   hitService = inject(HitService);
   submitted = false;
 
@@ -36,12 +38,33 @@ export class ContactComponent {
     if (this.formContact.valid) {
       this.hitService.getHit().subscribe({
         next: (response) => {
-          alert(`${response.data.title}\n\nNome: ${this.formContact.value.name}\nE-mail: ${this.formContact.value.email}\nMensagem: ${this.formContact.value.message}`);
+          const modal = this.modalService.confirmModal({
+            title: response.data.title,
+            lockScreen: true,
+            backdropDismiss: false,
+            description: `Nome: ${this.formContact.value.name}\nE-mail: ${this.formContact.value.email}\nMensagem: ${this.formContact.value.message}`,
+            btnTextCancel: 'Fechar',
+            btnTextConfirm: 'Confirmar',
+          });
+          modal.afterClosed().subscribe((res) => {
+            console.log('afterClosed', res);
+          });
         },
         error: (error) => {
           console.error(error);
           alert('Erro ao carregar os dados');
         },
+      });
+    } else {
+      const modal = this.modalService.alertModal({
+        title: 'Atenção',
+        lockScreen: true,
+        backdropDismiss: false,
+        description: `Formulário inválido!`,
+        btnText: 'Fechar',
+      });
+      modal.afterClosed().subscribe((res) => {
+        console.log('afterClosed', res);
       });
     }
   }

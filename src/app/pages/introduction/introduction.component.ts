@@ -12,13 +12,14 @@ import { HitButtonComponent } from "../../shared/components/hit-button/hit-butto
   standalone: true,
   imports: [CommonModule, HitTitleComponent, HitCardComponent, HitLoaderComponent, HitButtonComponent],
   templateUrl: './introduction.component.html',
-  styleUrl: './introduction.component.scss'
+  styleUrl: './introduction.component.scss',
 })
 export class IntroductionComponent {
 
+  hitService = inject(HitService);
+
   hasError = signal(false);
 
-  hitService = inject(HitService);
   data$ = this.hitService.getHit().pipe(
     tap({
       error: (error) => {
