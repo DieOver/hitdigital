@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { HitTitleComponent } from '../../shared/components/hit-title/hit-title.component';
 import { HitButtonComponent } from '../../shared/components/hit-button/hit-button.component';
-import { HitService } from '../../shared/services/hit/hit.service';
 import { HitCardComponent } from '../../shared/components/hit-card/hit-card.component';
-import { FormControl, FormGroup, ReactiveFormsModule, RequiredValidator, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ModalService } from '../../shared/services/modal/modal.service';
+import { HitServiceContractService } from '../../shared/services/hit/hit.service.contract';
 
 @Component({
   selector: 'app-contact',
@@ -23,7 +23,7 @@ import { ModalService } from '../../shared/services/modal/modal.service';
 export class ContactComponent {
 
   modalService = inject(ModalService);
-  hitService = inject(HitService);
+  hitService = inject(HitServiceContractService);
   submitted = false;
 
   formContact = new FormGroup({

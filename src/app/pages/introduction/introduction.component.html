@@ -3,6 +3,10 @@
     <app-hit-title>Introdução</app-hit-title>
   </div>
   <div class="content">
+
+    <!-- <p>{{ progress }}%</p>
+    <button (click)="startDownload()">Download</button> -->
+
     <div *ngIf="hasError(); else dataTemplate">
       <app-hit-card>
         <section class="text-error">
